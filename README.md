@@ -2,6 +2,12 @@
 
 ## Steps to Set Up the Project
 
+**Prerequisites**
+   - Install postgresql.
+   - Create a database.
+   - Install java.
+   - Install node
+     
 **Fork and Clone the Repository**
    - Fork the repository to your GitHub account.
    - Clone the repository using:
@@ -14,10 +20,6 @@
      ```bash
      npm install
      ```
-**Prerequisites**
-   - Install postgresql.
-   - Create a database.
-   - Install java.
 
 **Configs**
    - In the Config.toml, under the devportal.store section, change the configs accordingly.
@@ -42,10 +44,10 @@
          "orgName": "ACME",
          "isPublic": false,
          "templateName" : "default",
-         "authenticatedPages": ["**/apis", "**/api/**"]
+         "authenticatedPages": []
       }'
      ```
-   - Add the URL patterns (using regular expressions) for the pages that require authentication to the authenticatedPages parameter.
+   - Add the URL patterns (using regular expressions) for the pages that require authentication to the authenticatedPages parameter. Eg: "**/apis", "**/api/**"
    - To try the login flow, create an OIDC application in the Identity Provider configured for the organization.
    - Create an Identity Provider for the organization with the following information of the application created above.
      ```bash
