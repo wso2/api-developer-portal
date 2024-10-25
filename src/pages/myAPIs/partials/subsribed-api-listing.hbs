@@ -93,6 +93,7 @@
                   <h5 class="api-card-title">{{apiInfo.apiName}}</h5>
                   <p>{{apiInfo.apiVersion}}</p>
                   <p>{{apiInfo.apiType}}</p>
+                  <p>Subscribed Plan: {{subscribedPlans subscriptionPlans}}</p>
                   <div class="row">
                     <div class="star-rating">
                       {{#apiInfo.ratings}}
@@ -103,9 +104,6 @@
                       {{/apiInfo.ratingsNoFill}}
                     </div>
                   </div>
-                  {{#isSubscribed subscriptionPlans}}
-                    <p>Subscribed</p>
-                  {{/isSubscribed}}
                   <span class="badge badge-custom1">{{apiInfo.apiCategory}}</span>
                   <p>{{apiInfo.apiDescription}}</p>
                   <div class="row list-items">

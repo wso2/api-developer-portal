@@ -2,11 +2,8 @@
   <div class="container-fluid api-banner-container">
     <div class="col-12">
       <div class="col-12 col-md-auto">
-        <img
-          class="img-thumbnail api-image"
-          src="{{apiMetadata.apiInfo.apiArtifacts.apiImages.api-icon}}"
-          alt="API Image"
-        />
+        <img class="img-thumbnail api-image" src="{{apiMetadata.apiInfo.apiArtifacts.apiImages.api-icon}}"
+          alt="API Image" />
       </div>
       <div class="api-title">
         <h4>{{apiMetadata.apiInfo.apiName}}</h4>
@@ -25,6 +22,7 @@
         {{else}}
           <a type="button" class="common-btn-primary" href="{{{schemaUrl}}}" download>Download</a>
         {{/in}}
+        <a type="button" class="common-btn-primary" href="#subscription">Subscribe</a>
       </div>
     </div>
   </div>
