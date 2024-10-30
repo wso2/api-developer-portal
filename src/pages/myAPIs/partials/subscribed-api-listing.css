@@ -259,3 +259,46 @@ hr {
 .star.noselected {
   color: var(--notselect-star-color);
 }
+
+.modal {
+  display: block; /* Show modal */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+  animation: fadeOutBackground 5s forwards; /* Fade out background */
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  animation: fadeOutContent 5s forwards; /* Fade out content */
+}
+
+/* Keyframes for fade out background */
+@keyframes fadeOutBackground {
+  0% {
+      opacity: 1; /* Fully visible */
+  }
+  100% {
+      opacity: 0; /* Fully transparent */
+      display: none; /* Hide element */
+  }
+}
+
+/* Keyframes for fade out content */
+@keyframes fadeOutContent {
+  0% {
+      opacity: 1; /* Fully visible */
+  }
+  100% {
+      opacity: 0; /* Fully transparent */
+  }
+}

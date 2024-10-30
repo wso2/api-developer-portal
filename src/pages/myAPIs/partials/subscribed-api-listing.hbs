@@ -125,6 +125,23 @@
               </div>
               {{/apiMetadata}}
             </div>
+            <div>{{subscriptionStatus}}</div>
+            <div id="successMessage">
+              {{#if (eq subscriptionStatus "subscribed")}}
+                <div class="modal">
+                    <div class="modal-content">
+                        <h5 class="modal-title">Subscription Successful</h5>
+                    </div>
+                </div>
+              {{/if}}
+              {{#if (eq subscriptionStatus "unsubscribed")}}
+                <div class="modal">
+                    <div class="modal-content">
+                        <h5 class="modal-title">Unsubscription Successful</h5>
+                    </div>
+                </div>
+              {{/if}}
+            </div>
           </div>
         </div>
       </div>
