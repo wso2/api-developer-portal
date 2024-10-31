@@ -23,5 +23,15 @@
   "serverUrl": {
     "sandboxUrl": "https://accommodation.api.sandbox.abc.com",
     "productionUrl": "https://accommodation.api.abc.com"
-  }
+  },
+  "subscriptionPlans": [
+    {
+        "policyName": "35PerMin",
+        "displayName": "Bronze",
+        "description": "Allows 35 requests per minute",
+        "amount": "40",
+        "status": "Subscribed",
+        "subscriptionID": "01ef929d-1913-1716-a596-f2259d7b6052"
+    }
+  ]
 }
