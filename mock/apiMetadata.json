@@ -21,7 +21,7 @@
             },
             "apiArtifacts": {
                 "apiImages": {
-                    "api-icon": "https://d30n1aq29wj74v.cloudfront.net/ACBOrganization/resources/images/hotel-availability.jpeg"
+                    "api-icon": "https://devportal-content.s3.amazonaws.com/ACBOrganization/resources/images/hotel-availability.jpeg"
                 }
             }
         }
@@ -40,7 +40,7 @@
             },
             "apiArtifacts": {
                 "apiImages": {
-                    "api-icon": "https://d30n1aq29wj74v.cloudfront.net/ACBOrganization/resources/images/leisure.jpeg"
+                    "api-icon": "https://devportal-content.s3.amazonaws.com/ACBOrganization/resources/images/leisure.jpeg"
                 }
             }
         },
@@ -70,7 +70,7 @@
           },
           "apiArtifacts": {
             "apiImages": {
-                "api-icon": "https://d30n1aq29wj74v.cloudfront.net/ACBOrganization/resources/images/navigation-mini.jpeg"
+                "api-icon": "https://devportal-content.s3.amazonaws.com/ACBOrganization/resources/images/navigation-mini.jpeg"
             }
           }
         },
@@ -107,7 +107,7 @@
             },
             "apiArtifacts": {
                 "apiImages": {
-                    "api-icon": "https://d30n1aq29wj74v.cloudfront.net/ACBOrganization/resources/images/attractions.jpeg"
+                    "api-icon": "https://devportal-content.s3.amazonaws.com/ACBOrganization/resources/images/attractions.jpeg"
                 }
             }
         }
