@@ -8,7 +8,7 @@ config.pathToContent = "./src/"
 config.db = {
     username: 'postgres',
     password: 'postgres',
-    database: 'devportal-new',
+    database: 'devportal',
     host: 'localhost',
     dialect: 'postgres',
 };
