@@ -1,10 +1,15 @@
 var config = {};
 
-config.adminAPI = "http://host.docker.internal:8080/admin/";
-config.apiMetaDataAPI = "http://host.docker.internal:9090/apiMetadata/"
-config.env = 'local'
-config.apiImageURL = "http://localhost:9090/apiMetadata/"
+config.apiMetaDataAPI = "http://localhost:9090/apiMetadata/"
+config.devportalAPI = "http://localhost:3000/devportal/"
+config.port = 3000
+config.mode = 'multi'
+config.db = {
+    username: 'postgres',
+    password: 'postgres',
+    database: 'dev',
+    host: 'localhost',
+    dialect: 'postgres',
+};
 
 module.exports = config;
-
-
