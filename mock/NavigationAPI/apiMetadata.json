@@ -11,7 +11,7 @@
       "documentationUrl": "https://acme.com/docs/navigation-api"
     },
     "apiImageMetadata": {
-      "api-icon": "https://devportal-content.s3.amazonaws.com/ACBOrganization/resources/images/hotel-availability.jpeg"
+      "api-icon": "https://devportal-content.s3.amazonaws.com/ACBOrganization/resources/images/navigation-mini.jpeg"
     }
   },
   "throttlingPolicies": [
