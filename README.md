@@ -1,28 +1,35 @@
 # Devportal Developer App
 
-## Steps to Set Up the Project
+## Steps to Set Up the Project Locally
 
-**Prerequisites**
-   - Install postgresql.
-   - Create a database.
-   - Install java.
-   - Install node
-     
+**Product Setup and Startup**
+   - Download the project artifacts from the release
+   - Execute the startup script
+      ```bash
+      sh startup.sh
+      ```
+   - Navigate to 'http://localhost:3000'
+   - To change the design, edit the files in the pages, partials and layout folder and refresh.
+
+## Steps to Set Up the Project in Production Environment
+
 **Fork and Clone the Repository**
    - Fork the repository to your GitHub account.
    - Clone the repository using:
      ```bash
      git clone https://github.com/wso2/api-developer-portal.git
      ```
-   
-**Install Dependencies**
-   - Navigate to the project directory and execute:
-     ```bash
-     npm install
-     ```
+
+**Prerequisites [only in production]**
+   - Install postgresql.
+   - Create a database.
 
 **Configs**
-   - In the Config.toml, under the devportal.store section, change the configs accordingly.
+   - In the Config.toml, change the database configs accordingly.
+   - Set the config.mode as production
+      ```bash
+      config.mode = 'production'
+      ```
 
 **Start the Project**
 
@@ -32,40 +39,21 @@
 
    - To start the project and explore with mock data, run the following command.
       ```bash
-     npm run devportal
+     sh startup.sh
      ```
    - If you started with a data-dump, navigate to 'http://localhost:3000/ACME' and explore the pages.
 
    - If you started without data, first create an organization
       ```bash
-     curl --location 'http://localhost:8080/admin/organisation' \
-      --header 'Content-Type: application/json' \
-      --data '{
+      curl --location --request POST 'http://localhost:3000/devportal/organizations' \
+         --header 'Content-Type: application/json' \
+         --data-raw '{
          "orgName": "ACME",
-         "isPublic": false,
-         "templateName" : "default",
-         "authenticatedPages": []
+         "businessOwner": "John Doe",
+         "businessOwnerContact": "+94-76-123-456",
+         "businessOwnerEmail": "john.doe@example.com"
       }'
      ```
-   - Add the URL patterns (using regular expressions) for the pages that require authentication to the authenticatedPages parameter. Eg: "**/apis", "**/api/**"
-   - To try the login flow, create an OIDC application in the Identity Provider configured for the organization.
-   - Create an Identity Provider for the organization with the following information of the application created above.
-     ```bash
-      curl --location --request POST 'http://localhost:8080/admin/identityProvider?orgName=ACME' \
-      --header 'Content-Type: application/json' \
-      --data-raw '{
-         "issuer": "",
-         "authorizationURL": "",
-         "tokenURL": "",
-         "userInfoURL": "",
-         "clientId": "",
-         "callbackURL": "",
-         "scope": "",
-         "signUpURL": "",
-         "logoutURL" : "",
-         "logoutRedirectURI" : ""
-      }'
-      ```
 
    - Navigate to 'http://localhost:3000/{{orgName}}'
   
