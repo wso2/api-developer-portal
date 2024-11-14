@@ -14,10 +14,8 @@
     "additionalProperties": {
       "documentationUrl": "https://globaldata.com/docs/countries-api"
     },
-    "apiArtifacts": {
-      "apiImages": {
+    "apiImageMetadata": {
         "api-icon": "https://devportal-content.s3.amazonaws.com/ACBOrganization/resources/images/hotel-availability.jpeg"
-      }
     }
   },
   "serverUrl": {
