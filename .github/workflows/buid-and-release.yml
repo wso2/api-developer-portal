@@ -66,7 +66,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ github.ref_name }}  
-          name: WSO2 API Developer Portal Core ${{ github.ref_name }}
+          name: WSO2 API Developer Portal ${{ github.ref_name }}
           body: "Automated release with custom assets including necessary scripts and files."
           draft: false
           prerelease: false
