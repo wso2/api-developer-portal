@@ -61,38 +61,42 @@
 
    -  To create APIs, run the following command.
    ```bash
-    curl --location 'http://localhost:9090/apiMetadata/api?apiID=AccommodationAPI&orgName=ACME' \
+    curl --location 'http://localhost:devportal/organizations/{organizationID}/apis' \
       --form 'api-metadata="{
-               \"apiInfo\": {
-                  \"apiName\": \"AccommodationAPI\",
-                  \"orgName\": \"ACME\",
-                  \"apiCategory\": \"Travel\",
-                  \"tags\": \"Transportation Travel Navigation\",
-                  \"apiDescription\": \"API for retrieving information about hotels and managing reservations\",
-                  \"apiVersion\" : \"3.0.1\",
-                  \"apiType\" : \"AsyncAPI\",
-                  \"additionalProperties\": {
-                     \"Key\": \"value\"
-                  },
-                  \"apiArtifacts\": {
-                     \"apiImages\": {
-                        \"api-icon\": \"ProductIcon.png\"
+                     "apiInfo": { 
+                        "referenceID": "12344",
+                        "apiName": "NavigationAPI",
+                        "orgName": "ACME",
+                        "apiCategory": "Travel",
+                        "apiDescription": "API for retrieving information about hotels and managing reservations",
+                        "visibility" : "PRIVATE",
+                        "visibleGroups": ["HR"],
+                        "owners" : {
+                        "technicalOwner": "john",
+                        "technicalOwnerEmail": "john@gmail.com",
+                        "businessOwner" : "sam",
+                        "businessOwnerEmail":"sam@gmail.com"
+                        },
+                        "apiVersion" : "3.0.2",
+                        "apiType" : "REST"    
+                     },
+                     "subscriptionPolicies": [
+                        {
+                           "policyName": "gold"
+                        },
+                        {
+                           "policyName": "advanced"
+                        },
+                        {
+                           "policyName": "platinum"
+                        }
+                     ],
+                     "endPoints": {
+                        "sandboxURL": "string",
+                        "productionURL": "https://taxi-navigation.mnm.abc.com"
                      }
-                  }
-               },
-               \"throttlingPolicies\": [
-               {
-                  \"category\": \"string\",
-                  \"policyName\": \"string\",
-                  \"description\": \"string\"
-               }
-               ],
-            \"serverUrl\": {
-               \"sandboxUrl\": \"string\",
-               \"productionUrl\": \"https://taxi-navigation.mnm.abc.com\"
-            }
-         }"; type=application/json' \
-      --form 'api-definition=@"{api-definition file}"'
+               }"; type=application/json' \
+      --form 'apiDefinition=@"{apiDefinition.json}"'
    ```
 -  The apiType values include REST, AsyncAPI, GraphQL or SOAP
 
@@ -108,20 +112,17 @@
       │   icon.svg
       │   product.png
    ```
+   This is a mullti part request, containing the metadata about the images in the api landing page. This should be sent as a jsoon key value map,
+   with the key referring to the name in the hbs where the image is referenced and the name of the image file as the value.
 - Run the following command to upload the content
    ```bash
-   curl --location 'http://localhost:9090/apiMetadata/apiContent?orgName=ACME&apiName=AccommodationAPI' \
-   --header 'Content-Type: application/zip' \
-   --data '@{path to zip folder}'
+   curl --location --request PUT 'http://localhost:3000/devportal/organizations/{organizationID}/apis/{apiID}/template' \
+        --form 'apiContent=@"{path-to-zip-file}"' \
+        --form 'imageMetadata="{
+                  \"api-icon\" : \"navigation.jpeg\",
+                  \"api-hero\": \"api.svg\"
+               }"'
    ```
-- Optionally, to display more advanced styling for the api-landing page, the following api call can be used to upload a hbs content.
-  The format of the zip file is the same as above, with the content folder including a api-content.hbs.
-
-  ```bash
-  curl --location 'http://localhost:8080/admin/additionalAPIContent?orgName=ACME&apiName=AccommodationAPI' \
-  --header 'Content-Type: application/zip' \
-  --data '@{path to zip folder}'
-  ```
 
 ## Project Structure and Layout
 
