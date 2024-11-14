@@ -1,0 +1,75 @@
+name: Build and Prepare Release Assets
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get the latest release from the API Developer Portal Core repo
+        id: get_latest_release
+        run: |
+          latest_release=$(curl -s https://api.github.com/repos/piyumaldk/api-developer-portal-core/releases/latest)
+          echo "Latest release tag: $(echo $latest_release | jq -r .tag_name)"
+          echo "Latest release assets: $(echo $latest_release | jq -r .assets[].name)"
+          echo "::set-output name=latest_release_tag::$(echo $latest_release | jq -r .tag_name)"
+          echo "::set-output name=assets::$(echo $latest_release | jq -r '.assets[].name' | tr '\n' ' ')"
+
+      - name: Download assets from the latest release
+        run: |
+          for asset in ${{ steps.get_latest_release.outputs.assets }}; do
+            echo "Downloading asset: $asset"
+            curl -L -o $asset https://github.com/piyumaldk/api-developer-portal-core/releases/download/${{ steps.get_latest_release.outputs.latest_release_tag }}/$asset
+          done
+
+      - name: Copy files based on asset names
+        run: |
+          # Check and prepare for each asset
+          for asset in ${{ steps.get_latest_release.outputs.assets }}; do
+            echo "Processing asset: $asset"
+            
+            # Create temp directory for copied files
+            mkdir -p temp_copy_dir
+
+            # Copy required files and directories
+            cp -r artifacts temp_copy_dir/
+            cp -r src temp_copy_dir/
+            cp config.js temp_copy_dir/
+            cp README.md temp_copy_dir/
+
+            # Check asset name to decide which scripts to copy
+            if [[ "$asset" == *linux* || "$asset" == *macos* ]]; then
+              cp *.sh temp_copy_dir/
+            elif [[ "$asset" == *win* ]]; then
+              cp *.bat temp_copy_dir/
+            fi
+
+            # Zip the copied files and directories with the asset name
+            zip -r "temp_copy_dir/${asset%.tar.gz}.zip" temp_copy_dir/*
+
+            # Clean up temp directory
+            rm -rf temp_copy_dir
+          done
+
+      - name: Create or Update GitHub Release with new assets
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.get_latest_release.outputs.latest_release_tag }}
+          name: WSO2 API Developer Portal ${{ steps.get_latest_release.outputs.latest_release_tag }}
+          body: "WSO2 API Developer Portal pack contains all the needed files to run the API Developer Portal."
+          draft: false
+          prerelease: false
+          artifacts: ./temp_copy_dir/*.zip
+          allowUpdates: true
+
