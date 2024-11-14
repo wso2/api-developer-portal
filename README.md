@@ -4,10 +4,19 @@
 
 **Product Setup and Startup**
    - Download the project artifacts from the release
-   - Execute the startup script
-      ```bash
-      sh startup.sh
-      ```
+   - Execute the startup script based on the os
+
+      - For Linux or MacOS
+
+         ```bash
+         sh startup.sh
+         ```
+      - For Windows
+   
+         ```bash
+         startup.bat
+         ```
+
    - Navigate to 'http://localhost:3000'
    - To change the design, edit the files in the pages, partials and layout folder and refresh.
 
