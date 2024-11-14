@@ -3,7 +3,7 @@ name: Build and Prepare Release Assets
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*'  # Trigger on tag creation
 
 permissions:
   contents: write
@@ -23,24 +23,23 @@ jobs:
           latest_release=$(curl -s https://api.github.com/repos/piyumaldk/api-developer-portal-core/releases/latest)
           echo "Latest release tag: $(echo $latest_release | jq -r .tag_name)"
           echo "Latest release assets: $(echo $latest_release | jq -r .assets[].name)"
-          echo "::set-output name=latest_release_tag::$(echo $latest_release | jq -r .tag_name)"
-          echo "::set-output name=assets::$(echo $latest_release | jq -r '.assets[].name' | tr '\n' ' ')"
+          echo "latest_release_tag=$(echo $latest_release | jq -r .tag_name)" >> $GITHUB_ENV
+          echo "assets=$(echo $latest_release | jq -r '.assets[].name' | tr '\n' ' ')" >> $GITHUB_ENV
 
       - name: Download assets from the latest release
         run: |
-          for asset in ${{ steps.get_latest_release.outputs.assets }}; do
+          for asset in ${{ env.assets }}; do
             echo "Downloading asset: $asset"
-            curl -L -o $asset https://github.com/piyumaldk/api-developer-portal-core/releases/download/${{ steps.get_latest_release.outputs.latest_release_tag }}/$asset
+            curl -L -o $asset https://github.com/piyumaldk/api-developer-portal-core/releases/download/${{ env.latest_release_tag }}/$asset
           done
 
       - name: Copy files based on asset names
         run: |
-          # Check and prepare for each asset
-          for asset in ${{ steps.get_latest_release.outputs.assets }}; do
+          # Create a temporary directory for copied files
+          mkdir -p temp_copy_dir
+
+          for asset in ${{ env.assets }}; do
             echo "Processing asset: $asset"
-            
-            # Create temp directory for copied files
-            mkdir -p temp_copy_dir
 
             # Copy required files and directories
             cp -r artifacts temp_copy_dir/
@@ -48,7 +47,7 @@ jobs:
             cp config.js temp_copy_dir/
             cp README.md temp_copy_dir/
 
-            # Check asset name to decide which scripts to copy
+            # Copy the appropriate script files based on asset name
             if [[ "$asset" == *linux* || "$asset" == *macos* ]]; then
               cp *.sh temp_copy_dir/
             elif [[ "$asset" == *win* ]]; then
@@ -58,6 +57,14 @@ jobs:
             # Zip the copied files and directories with the asset name
             zip -r "temp_copy_dir/${asset%.tar.gz}.zip" temp_copy_dir/*
 
+            # Ensure the zip file was created
+            if [ -f "temp_copy_dir/${asset%.tar.gz}.zip" ]; then
+              echo "Created zip file: temp_copy_dir/${asset%.tar.gz}.zip"
+            else
+              echo "Failed to create zip file: temp_copy_dir/${asset%.tar.gz}.zip"
+              exit 1
+            fi
+
             # Clean up temp directory
             rm -rf temp_copy_dir
           done
@@ -65,11 +72,10 @@ jobs:
       - name: Create or Update GitHub Release with new assets
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.get_latest_release.outputs.latest_release_tag }}
-          name: WSO2 API Developer Portal ${{ steps.get_latest_release.outputs.latest_release_tag }}
-          body: "WSO2 API Developer Portal pack contains all the needed files to run the API Developer Portal."
+          tag: ${{ env.latest_release_tag }}
+          name: WSO2 API Developer Portal Core ${{ env.latest_release_tag }}
+          body: "Automated release with custom assets including necessary scripts and files."
           draft: false
           prerelease: false
           artifacts: ./temp_copy_dir/*.zip
           allowUpdates: true
-
