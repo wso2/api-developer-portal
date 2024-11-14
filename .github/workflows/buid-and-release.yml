@@ -3,7 +3,7 @@ name: Build and Prepare Release Assets
 on:
   push:
     tags:
-      - 'v*'  # Trigger on tag creation
+      - 'v*' 
 
 permissions:
   contents: write
@@ -33,49 +33,42 @@ jobs:
             curl -L -o $asset https://github.com/piyumaldk/api-developer-portal-core/releases/download/${{ env.latest_release_tag }}/$asset
           done
 
-      - name: Copy files based on asset names
+      - name: Prepare and Zip Files for Each Asset
         run: |
-          # Create a temporary directory for copied files
-          mkdir -p temp_copy_dir
+          mkdir -p temp_zips  # Create a directory for zip files
 
           for asset in ${{ env.assets }}; do
+            if [[ "$asset" == *source* ]]; then
+              continue
+            fi
+
             echo "Processing asset: $asset"
+            mkdir -p developer-portal  # Use 'developer-portal' as the temp directory name
 
-            # Copy required files and directories
-            cp -r artifacts temp_copy_dir/
-            cp -r src temp_copy_dir/
-            cp config.js temp_copy_dir/
-            cp README.md temp_copy_dir/
+            # Copy necessary files and directories
+            cp -r src developer-portal/
+            cp -r mock developer-portal/
+            cp -r artifacts developer-portal/
+            cp config.js developer-portal/
+            cp README.md developer-portal/
+            cp "$asset" developer-portal/  # Add asset file
 
-            # Copy the appropriate script files based on asset name
-            if [[ "$asset" == *linux* || "$asset" == *macos* ]]; then
-              cp *.sh temp_copy_dir/
-            elif [[ "$asset" == *win* ]]; then
-              cp *.bat temp_copy_dir/
-            fi
-
-            # Zip the copied files and directories with the asset name
-            zip -r "temp_copy_dir/${asset%.tar.gz}.zip" temp_copy_dir/*
-
-            # Ensure the zip file was created
-            if [ -f "temp_copy_dir/${asset%.tar.gz}.zip" ]; then
-              echo "Created zip file: temp_copy_dir/${asset%.tar.gz}.zip"
-            else
-              echo "Failed to create zip file: temp_copy_dir/${asset%.tar.gz}.zip"
-              exit 1
-            fi
-
-            # Clean up temp directory
-            rm -rf temp_copy_dir
+            # Create zip file named after the asset
+            zip_name="temp_zips/$asset.zip"
+            zip -r "$zip_name" developer-portal/*
+            rm -rf developer-portal  # Clean up for the next asset
           done
 
-      - name: Create or Update GitHub Release with new assets
+      - name: List Created Zip Files
+        run: ls -R temp_zips
+
+      - name: Upload Zips to GitHub Release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ env.latest_release_tag }}
-          name: WSO2 API Developer Portal Core ${{ env.latest_release_tag }}
+          tag: ${{ github.ref_name }}  
+          name: WSO2 API Developer Portal Core ${{ github.ref_name }}
           body: "Automated release with custom assets including necessary scripts and files."
           draft: false
           prerelease: false
-          artifacts: ./temp_copy_dir/*.zip
+          artifacts: "./temp_zips/*"  
           allowUpdates: true
