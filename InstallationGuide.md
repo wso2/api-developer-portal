@@ -1,5 +1,3 @@
-Download the developer portal zip file from “”.
-
 Production setup
 ================
 
@@ -112,3 +110,4 @@ To update the developer portal with the customized content, follow the instructi
 **Mock APIs**
    - Mock APIs are displayed to define the structure.
    - In a production scenario, these will be replaced by actual publised APIs.
+
