@@ -1,85 +1,99 @@
 <section>
-  <div class="col-lg-12 hero-section-applicationlisting">
-    <div class="applicationlist-hero-container anim">
-      <div class="applicationlist-hero-content">
-        <div class="applicationlist-hero-header">
+  <div class='col-lg-12 hero-section-applicationlisting'>
+    <div class='applicationlist-hero-container anim'>
+      <div class='applicationlist-hero-content'>
+        <div class='applicationlist-hero-header'>
           <h1>Subscribe to
             <span>APIs</span>
             by creating applications.
           </h1>
         </div>
-        <div class="applicationlist-hero-subtitle">
+        <div class='applicationlist-hero-subtitle'>
           <p>Create, manage, or remove applications here.</p>
         </div>
-        <div class="col-lg-10 search-container">
-          <div class="search-input">
-            <i class="bi bi-search"></i>
-            <input type="text" id="query" placeholder="Search Applications" />
+        <div class='col-lg-10 search-container'>
+          <div class='search-input'>
+            <i class='bi bi-search'></i>
+            <input type='text' id='query' placeholder='Search Applications' />
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="container-fluid col-lg-12 applicationlist-container">
-    <div id="applications-list" class="row">
-        {{#applicationsMetadata}}
-        <div id="{{applicationId}}" class="card application-card col-lg-2 col-md-4 col-sm-6 mb-4" data-name="{{name}}">
-        <div class="application-card-body">
-            <h5 class="application-card-title">
-            <a href="{{baseUrl}}/applications/{{applicationId}}" class="application-name-link">{{name}}</a>
+  <div class='container-fluid col-lg-12 applicationlist-container'>
+    <div id='applications-list' class='row'>
+      {{#applicationsMetadata}}
+        <div
+          id='{{applicationId}}'
+          class='card application-card col-lg-2 col-md-4 col-sm-6 mb-4'
+          data-name='{{name}}'
+        >
+          <div class='application-card-body'>
+            <h5 class='application-card-title'>
+              <a
+                href='{{baseUrl}}/applications/{{applicationId}}'
+                class='application-name-link'
+              >{{name}}</a>
             </h5>
-            <p class="application-card-description">{{description}}</p>
-            <div class="application-card-meta">
-            <p> 
-                <i class="bi bi-calendar-event"></i> Created: {{createdTime}}
-            </p>
-            <p>
-                <i class="bi bi-pencil-square"></i> Updated: {{updatedTime}}
-            </p>
-            <p>
-                <i class="bi bi-people-fill"></i> Owner: {{owner}}
-            </p>
-            <p>
-                <i class="bi bi-grid"></i> Subscriptions: {{subscriptionCount}}
-            </p>
-            <p>
-                <i class="bi bi-speedometer2"></i> Throttling Policy: {{throttlingPolicy}}
-            </p>
-            <span class="badge badge-custom1">{{status}}</span>
+            <p class='application-card-description'>{{description}}</p>
+            <div class='application-card-meta'>
+              <p>
+                <i class='bi bi-calendar-event'></i>
+                Created:
+                {{createdTime}}
+              </p>
+              <p>
+                <i class='bi bi-pencil-square'></i>
+                Updated:
+                {{updatedTime}}
+              </p>
+              <p>
+                <i class='bi bi-people-fill'></i>
+                Owner:
+                {{owner}}
+              </p>
+              <p>
+                <i class='bi bi-grid'></i>
+                Subscriptions:
+                {{subscriptionCount}}
+              </p>
+              <p>
+                <i class='bi bi-speedometer2'></i>
+                Throttling Policy:
+                {{throttlingPolicy}}
+              </p>
+              <span class='badge badge-custom1'>{{status}}</span>
             </div>
-            <div class="application-card-actions">
-            <button type="button" class="btn btn-icon edit-button" title="Edit">
-                <i class="bi bi-pencil-fill"></i>
-            </button>
-            <button type="button" class="btn btn-icon delete-button" title="Delete">
-                <i class="bi bi-trash-fill"></i>
-            </button>
+            <div class='application-card-actions'>
+              <button
+                type='button'
+                class='btn btn-icon edit-button'
+                title='Edit'
+              >
+                <i class='bi bi-pencil-fill'></i>
+              </button>
+              <button
+                type='button'
+                class='btn btn-icon delete-button'
+                title='Delete'
+              >
+                <i class='bi bi-trash-fill'></i>
+              </button>
             </div>
+          </div>
         </div>
-        </div>
-        {{/applicationsMetadata}}
+      {{/applicationsMetadata}}
     </div>
-    </div>
+  </div>
 
 </section>
 
 <script>
   document.getElementById('query').addEventListener('input', function (e) {
-    const query = e.target.value.toLowerCase(); 
-    const cards = document.querySelectorAll('#applications-list .card'); 
-
-    if (cards.length === 0) {
-      return;
-    }
-
-    cards.forEach(card => {
-        console.log('Card:', card);
-      const name = card.dataset.name?.toLowerCase() || '';
-      if (name.includes(query)) {
-        card.style.visibility = ''; 
-      } else {
-        card.style.visibility = 'hidden';
-      }
-    });
+  const query = e.target.value.toLowerCase(); const cards =
+  document.querySelectorAll('#applications-list .card'); if (cards.length === 0)
+  { return; } cards.forEach(card => { console.log('Card:', card); const name =
+  card.dataset.name?.toLowerCase() || ''; if (name.includes(query)) {
+  card.style.visibility = ''; } else { card.style.visibility = 'hidden'; } });
   });
 </script>
