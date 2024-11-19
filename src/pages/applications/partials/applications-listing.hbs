@@ -1,0 +1,114 @@
+<section>
+  <div class="col-lg-12 hero-section-apilisting">
+    <div class="apilist-hero-container anim">
+      <div class="apilist-hero-content">
+        <div class="apilist-hero-header">
+          <h1>Explore
+            <span>best APIs</span>
+            and join us in building innovative applications.
+          </h1>
+        </div>
+        <div class="apilist-hero-subtitle">
+          <p>
+            Utilize our APIs to automate processes, drive innovation, and reach
+            millions of customers.</p>
+        </div>
+        <div class="col-lg-10 search-container">
+          <div class="search-input">
+            <i class="bi bi-search"></i>
+            <input type="text" id="query" placeholder="Search APIs" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid col-lg-12 apilist-container">
+    <div class="row list-items">
+      <div class="col-lg-2 api-filterlist">
+        <h6 class="filter-header">Filter By</h6>
+        <div class="row list-items api-filter-content">
+          <div class="col-lg filter-sub"> Explore </div>
+          <div class="col-lg dropdown" id="exploreFilter" data-bs-toggle="collapse" data-bs-target="#collapseExplore"
+            aria-expanded="true" aria-controls="collapseExplore">
+            <i class="bi bi-chevron-down"></i>
+          </div>
+          <hr />
+          <div class="collapse show" id="collapseExplore">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              <label class="form-check-label" for="flexCheckDefault">All</label>
+            </div>
+          </div>
+          <div class="collapse show" id="collapseExplore">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              <label class="form-check-label" for="flexCheckDefault">Recently
+                Added</label>
+            </div>
+          </div>
+          <div class="collapse show" id="collapseExplore">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              <label class="form-check-label" for="flexCheckDefault">Trending</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row list-items api-filter-content">
+          <div class="col-lg filter-sub"> Category </div>
+          <div class="col-lg dropdown" id="categoryFilter" data-bs-toggle="collapse" data-bs-target="#collapseCategory"
+            aria-expanded="true" aria-controls="collapseCategory">
+            <i class="bi bi-chevron-down"></i>
+          </div>
+          <hr />
+          <div class="collapse show" id="collapseCategory">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              <label class="form-check-label" for="flexCheckDefault">Account</label>
+            </div>
+          </div>
+          <div class="collapse show" id="collapseCategory">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              <label class="form-check-label" for="flexCheckDefault">AI</label>
+            </div>
+          </div>
+          <div class="collapse show" id="collapseCategory">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              <label class="form-check-label" for="flexCheckDefault">Business
+                Intelligence</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-10">
+        <div class="row list-items">
+          <div class="col">
+            <div class="row list-items container-fluid">
+              {{#applicationsMetadata}}
+              <div class="card dev-card api-card lg-3 d-flex flex-column">
+                <div class="api-card-body flex-grow-1">
+                  <h5 class="api-card-title">{{name}}</h5>
+                  <p>V {{throttlingPolicy}}</p>
+                  <p>{{description}}</p>
+                  <span class="badge badge-custom1">{{status}}</span>
+                  <p>{{owner}}</p>
+                </div>
+                <div class="apibtn-container mt-auto">
+                  <div class="row">
+                    <div class="col-5 text-left">
+                      <a type="button" class="btn apilistbtn-primary"
+                        href="{{baseUrl}}/applications/{{applicationId}}">Overview</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {{/applicationsMetadata}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
