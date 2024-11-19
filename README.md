@@ -2,7 +2,7 @@
     
 2.  Extract the downloaded zip.
     
-3.  Execute the startup script on the root folder, based on the OS:
+3.  Execute the startup script on the <DEV-PORTAL-HOME> folder, based on the OS:
     
 ``` bash
 For Linux or MacOS

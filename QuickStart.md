@@ -47,7 +47,13 @@ The **/src/images** folder contains the images.
 
 **mock**
 
-Includes the mock API information. Mock APIs are displayed to define the structure. In a production scenario, these will be replaced by actual published APIs.
+Includes the mock API information. Mock APIs are displayed to define the structure. In a production scenario, these will be replaced by actual published APIs.  
+Each api folder contains the api definition file, the api metadata and the content to be included in the api landing page (either md or hbs).
+- **mock/apiMetadata.json**
+Includes the metadata of the mock APIs to be displayed in the api listing page.
+
+- **mock/auth.json**
+  Includes details about the Identity provider to be used when logging in to the dev-portal in development mode. 
 
 **config.js**
 
