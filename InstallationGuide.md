@@ -102,8 +102,7 @@ To update the developer portal with the customized content, follow the instructi
         - The `/src/layout` folder includes the main layout of the dev portal.
         - Other pages inherit this layout.
         - The `/src/pages` folder holds the content for the pages.
-        - The `/src/partials` folder holds the common content for the pages.
-        - The header and footer are injected as partials into the layout.
+        - The `/src/partials` folder holds the common content for the pages such as the header and footer which are injected as partials into the layout.
         - The `/src/images` folder contains the images.
    - The `mock` direcrory includes the mock API information.
   
