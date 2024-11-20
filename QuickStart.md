@@ -71,6 +71,8 @@ Contains the sql file to create database tables.
 
 Customize a page
 ----------------
+To customize the content for the api-landing, api-listing or organization landing (home) pages, the relevant hbs files can be modified under  
+the relevant folder for the page in the src/pages directory.
 
 The styles folder (src/styles) will contain the style sheets for all the partials, named after the relevant partial file.
 
