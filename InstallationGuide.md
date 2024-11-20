@@ -45,12 +45,12 @@ psql -U \-d \-f /artifacts/script.sql -W
 
 ### Changing the database to PostgreSQL
 
-1.  Navigate to the config.js file in the root directory of the developer-portal.
+1.  Navigate to the config.json file in the <DEVPORTAL_HOME> directory.
     
-2.  Edit the config.db properties to connect to the created db.
+2.  Edit the db properties to connect to the created db.
     
 ```bash
-config.db = {
+db = {
 
     username: 'postgres',
 
@@ -60,24 +60,19 @@ config.db = {
 
     host: 'localhost',
 
-    dialect: 'postgres'}
+    dialect: 'postgres'
+}
 ```
 
-### Change the config.js properties
+### Changing the config.json properties
 
 ```bash
-config.devportalAPI = "http://localhost:3000/devportal/"
+port = 3000
 
-config.port = 3000
+mode = 'development'
 
-config.mode = 'development'
-
-config.pathToContent = "./src/"
+pathToContent = "./src/"
 ```
-
-devportalAPI
-
-Endpoint to retrieve organization content and api content.
 
 port
 

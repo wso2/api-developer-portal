@@ -55,7 +55,7 @@ Includes the metadata of the mock APIs to be displayed in the api listing page.
 - **mock/auth.json**
   Includes details about the Identity provider to be used when logging in to the dev-portal in development mode. 
 
-**config.js**
+**config.json**
 
 Configuration file for the developer portal.
 
@@ -218,6 +218,10 @@ The page.hbs file should have the following format:
     {{{ content  }}} # name of the markdown file, if any
 ```
 
+Configure login
+---------------
+To test a user login to the developer portal, the auth.json file in the mock folder can be modified to include the identity provider details.
+
 Promote to production
 ---------------------
 
@@ -315,10 +319,32 @@ For example, the key should be sent as api-icon to display the relevant image in
 ```
 Run the following command to upload the content.
 ``` bash
-curl --location --request PUT 'http://localhost:3000/devportal/organizations/{organizationID}/apis/{apiID}/template'
+curl --location --request POST 'http://localhost:3000/devportal/organizations/{organizationID}/apis/{apiID}/template'
      --form 'apiContent=@"{path-to-zip-file}"' \\
      --form 'imageMetadata="{
                \\"api-icon\\" : \\"navigation.jpeg\\",
                \\"api-hero\\": \\"api.svg\\"
             }"
+```
+
+6. Create the IDP for devportal login
+
+``` bash
+curl --location --request POST 'http://localhost:3000/devportal/organizations/{organizationID}/identityProvider' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3AhKQhm7b2bCe4RkJuFknvUsxVqgG_iueA.ddy6vv265vp0cRrpRoJMnYZWs11tRTNsT0MKtTyIQ4o' \
+--data '{
+    "name": "Asgardeo",
+    "issuer": "https://api.asgardeo.io/t/sachinisiriwardene/oauth2/token",
+    "authorizationURL": "https://api.asgardeo.io/t/sachinisiriwardene/oauth2/authorize",
+    "tokenURL": "https://api.asgardeo.io/t/sachinisiriwardene/oauth2/token",
+    "userInfoURL": "https://api.asgardeo.io/t/sachinisiriwardene/oauth2/userinfo",
+    "clientId": "",
+    "callbackURL": "http://localhost:3000/ACME/callback",
+    "scope": "openid email groups",
+    "signUpURL": "https://accounts.asgardeo.io/t/choreotestorganization/accountrecoveryendpoint/register.do",
+    "logoutURL": "https://api.asgardeo.io/t/sachinisiriwardene/oidc/logout",
+    "logoutRedirectURI": "http://localhost:3000/ACME"
+
+}'
 ```
