@@ -4,24 +4,19 @@
     
 3.  Execute the startup script on the root, based on the OS:
     
-
 For Linux or MacOS
-
     sh startup.sh
-
 For Windows
-
    startup.bat 
 
-This will start the webapp in the following URL : ‘[http://localhost:3000](http://localhost:3000)’
+This will start the webapp in the following URL : ‘[http://localhost:3000/{orgName}](http://localhost:3000/{orgName})’
 
 This will direct you to the organization landing page.
 
-The ‘[http://localhost:3000](http://localhost:3000)/apis’ will direct you to the api listing page.
+The ‘[http://localhost:3000/{orgName}](http://localhost:3000/{orgName})/apis’ will direct you to the api listing page.
 
-You will be able to see some mock apis populated in this page.
+By default, no apis will be avaialable since no content is yet uploaded to the developer portal.
 
-You can click on each individual api to go to the relevant landing page of each API.
 
 4. The extracted folder contains the following:
 
@@ -68,6 +63,28 @@ Command:  sh compress.sh {organizatioName}
 **artifacts**
 
 Contains the sql file to create database tables.
+
+To customize and theme the developer portal, follow the steps below:
+
+1. Change the mode to 'development' in the config.json file at <DEVPORTAL_HOME> folder.
+
+2. Start the developer portal by running the startup script at <DEVPORTAL_HOME> folder.
+  ```bash
+   For Linux or MacOS
+    sh startup.sh
+   For Windows
+   startup.bat 
+  ```
+3. Navigate to the organization landing page at [http://localhost:3000](http://localhost:3000/).
+
+4. The following pages can be viewed from below urls:
+- [http://localhost:3000](http://localhost:3000/) - Organization landing page
+- [http://localhost:3000/apis](http://localhost:3000/apis) - API listing page
+- [http://localhost:3000/api/{apiName}](http://localhost:3000/api/{apiName}) - API landing page
+- [http://localhost:3000/applications](http://localhost:3000/api/{apiName}/tryout) - API trypout page
+
+5. Customize the content for the organization landing, api listing and api landing pages.
+   From above pages, except for the tryout page, the content can be customized by modifying the hbs files in the src/pages directory.
 
 Customize a page
 ----------------
@@ -142,7 +159,6 @@ The baseUrl property can be used to create hrefs relative to the base url of the
 ex:
 ``` bash
 href="{{baseUrl}}/api/{{apiInfo.apiName}}">Overview
-
 ```
 
 API Landing Page:
@@ -177,8 +193,8 @@ The api information can be accessed from the src/pages/api-landing/partials/api-
 <p> {{apiMetadata.apiInfo.apiVersion}}</p>
 <p class="api-desciption">{{apiMetadata.apiInfo.apiDescription}}</p>
 ```
-### Customize API landing page
-
+Customize API landing page
+--------------------------
 The mock (/mock) folder will contain each APIs content for the apis displayed in the api listing page (/apis).
 
 An api landing page’s content can either be rendered using a markdown file or by modifying the api-content hbs file directly.
@@ -194,8 +210,7 @@ markdown: apiContent.md
 HBS: api-conent.hbs
 
 Add a page
-----------
-
+----------  
 In order to add a new page, a folder needs to be created under the pages directory, representing the relevant url path of the page in the directory structure.
 
   ex: [http://localhost:3000/applications/myapps](http://localhost:3000/applications/myapps)
@@ -298,7 +313,7 @@ This is a multi part request containing a json with metadata related to the API 
    --form 'apiDefinition=@"{apiDefinition.json}"'
 ```
 
-5.Upload the api landing page content. 
+5. Upload the api landing page content. 
 
 To upload the content to be displayed on the api-landing page, create a zip file with the folder structure as follows:
 ``` bash
