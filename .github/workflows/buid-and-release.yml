@@ -49,10 +49,12 @@ jobs:
             cp -r src developer-portal/
             cp -r mock developer-portal/
             cp -r artifacts developer-portal/
-            cp config.js developer-portal/
+            cp config.json developer-portal/
             cp startup.bat developer-portal/
             cp startup.sh developer-portal/
             cp compress.sh developer-portal/
+            cp InstallationGuide.md developer-portal/
+            cp QuickStart.md developer-portal/
             cp README.md developer-portal/
             cp "$asset" developer-portal/  # Add asset file
 
