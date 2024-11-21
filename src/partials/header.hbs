@@ -8,9 +8,9 @@
             </a>
             <div class="navbar-nav">
                 <a class="nav-link" aria-current="page" href="{{baseUrl}}/apis">APIs</a>
-                <a class="nav-link" aria-current="page" href="{{baseUrl}}/pricing">Pricing</a>
+                {{!-- <a class="nav-link" aria-current="page" href="{{baseUrl}}/pricing">Pricing</a>
                 <a class="nav-link" aria-current="page" href="{{baseUrl}}/#">Get started</a>
-                <a class="nav-link" aria-current="page" href="{{baseUrl}}/#">Application</a>
+                <a class="nav-link" aria-current="page" href="{{baseUrl}}/#">Application</a> --}}
             </div>
             {{#if profile}}
             <div class="container-fluid nav justify-content-end" id="profile-section">
@@ -19,7 +19,7 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="profile-container">
                             <img src="/images/profile.svg" alt="Profile" class="profile-icon" />
-                            <span>Hi Joe</span>
+                            <span>Hi {{profile.name}}</span>
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
