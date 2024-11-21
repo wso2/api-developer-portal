@@ -91,22 +91,27 @@ body {
   top: -2px;
 }
 
-.applicationlist-container {
-  padding: 10px 20px;
+.applicationspage-container {
+  padding: 10px 65px;
   margin-top: 45px;
-  gap: 20px; 
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
+  margin-bottom: 20px;
+}
+
+.applicationlist-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
 }
 
 .application-card {
   display: flex;
   flex-direction: column;
   border: 1px solid var(--border-colour-secondary);
-  border-radius: 8px;
-  background-color: white; 
-  padding: 15px;
+  border-radius: 12px;
+  background-color: var(--light-bg-color);
+  padding: 20px;
   height: 100%;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -124,7 +129,6 @@ body {
 
 .application-card-title {
   font-size: 18px;
-  font-weight: bold;
   color: var(--main-text-color);
   margin-bottom: 10px;
 }
@@ -135,7 +139,7 @@ body {
 }
 
 .application-name-link:hover {
-  text-decoration: underline;
+  color: var(--warning-color);
 }
 
 .application-card-description {
@@ -183,6 +187,25 @@ body {
 
 .btn-icon:hover {
   color: var(--warning-color);
+}
+
+.applicationsbtn-container {
+  margin: 20px;
+  width: 100%;
+}
+
+.applicationsaddbtn-primary {
+  padding: 5px 30px;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: transparent;
+  color: var(--border-colour-primary);
+  border: 1px solid var(--border-colour-primary);
+}
+
+.applicationsaddbtn-primary:hover {
+  background-color: var(--primary-color);
+  color: var(--font-colour-primary);
 }
 
 @media (max-width: 1200px) {
