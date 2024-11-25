@@ -10,10 +10,8 @@
     "additionalProperties": {
       "documentationUrl": "https://globaldata.com/docs/countries-api"
     },
-    "apiArtifacts": {
-      "apiImages": {
-        "api-icon": "https://d30n1aq29wj74v.cloudfront.net/ACBOrganization/resources/images/leisure.jpeg"
-      }
+    "apiImageMetadata": {
+      "api-icon": "https://devportal-content.s3.amazonaws.com/ACBOrganization/resources/images/attractions.jpeg"
     }
   },
   "throttlingPolicies": [

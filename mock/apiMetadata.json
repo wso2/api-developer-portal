@@ -19,10 +19,8 @@
                     "version": "1.1.0"
                 }
             },
-            "apiArtifacts": {
-                "apiImages": {
-                    "api-icon": "https://d30n1aq29wj74v.cloudfront.net/ACBOrganization/resources/images/hotel-availability.jpeg"
-                }
+            "apiImageMetadata": {
+                "api-icon": "https://devportal-content.s3.amazonaws.com/ACBOrganization/resources/images/hotel-availability.jpeg"
             }
         }
     },
@@ -31,17 +29,20 @@
             "apiName": "CountriesAPI",
             "orgName": "GlobalData",
             "apiCategory": "Geography",
-            "tags": ["countries", "capitals", "population", "continents"],
+            "tags": [
+                "countries",
+                "capitals",
+                "population",
+                "continents"
+            ],
             "apiDescription": "API for retrieving information about countries, their capitals, population, and other geographical data.",
             "apiVersion": "2.5.0",
             "apiType": "GraphQL",
             "additionalProperties": {
                 "documentationUrl": "https://globaldata.com/docs/countries-api"
             },
-            "apiArtifacts": {
-                "apiImages": {
-                    "api-icon": "https://d30n1aq29wj74v.cloudfront.net/ACBOrganization/resources/images/leisure.jpeg"
-                }
+            "apiImageMetadata": {
+                "api-icon": "https://devportal-content.s3.amazonaws.com/ACBOrganization/resources/images/attractions.jpeg"
             }
         },
         "throttlingPolicies": [
@@ -58,32 +59,34 @@
     },
     {
         "apiInfo": {
-          "apiName": "NavigationAPI",
-          "orgName": "ACME",
-          "apiCategory": "Transportation",
-          "tags": ["transport", "activities", "reservations"],
-          "apiDescription": "API for retrieving navigation data, including routes, GPS coordinates, traffic updates, and real-time directions.",
-          "apiVersion": "3.0.1",
-          "apiType": "AsyncAPI",
-          "additionalProperties": {
-            "documentationUrl": "https://acme.com/docs/navigation-api"
-          },
-          "apiArtifacts": {
-            "apiImages": {
-                "api-icon": "https://d30n1aq29wj74v.cloudfront.net/ACBOrganization/resources/images/navigation-mini.jpeg"
+            "apiName": "NavigationAPI",
+            "orgName": "ACME",
+            "apiCategory": "Transportation",
+            "tags": [
+                "transport",
+                "activities",
+                "reservations"
+            ],
+            "apiDescription": "API for retrieving navigation data, including routes, GPS coordinates, traffic updates, and real-time directions.",
+            "apiVersion": "3.0.1",
+            "apiType": "AsyncAPI",
+            "additionalProperties": {
+                "documentationUrl": "https://acme.com/docs/navigation-api"
+            },
+            "apiImageMetadata": {
+                "api-icon": "https://devportal-content.s3.amazonaws.com/ACBOrganization/resources/images/navigation-mini.jpeg"
             }
-          }
         },
         "throttlingPolicies": [
-          {
-            "type": "rateLimit",
-            "policyName": "Basic Rate Limit",
-            "description": "Limits requests to 500 per hour."
-          }
+            {
+                "type": "rateLimit",
+                "policyName": "Basic Rate Limit",
+                "description": "Limits requests to 500 per hour."
+            }
         ],
         "serverUrl": {
-          "sandboxUrl": "https://sandbox.acme.com/api/v1/navigation",
-          "productionUrl": "https://api.acme.com/v1/navigation"
+            "sandboxUrl": "https://sandbox.acme.com/api/v1/navigation",
+            "productionUrl": "https://api.acme.com/v1/navigation"
         }
     },
     {
@@ -105,10 +108,8 @@
                     "version": "2.0.0"
                 }
             },
-            "apiArtifacts": {
-                "apiImages": {
-                    "api-icon": "https://d30n1aq29wj74v.cloudfront.net/ACBOrganization/resources/images/attractions.jpeg"
-                }
+            "apiImageMetadata": {
+                "api-icon": "https://devportal-content.s3.amazonaws.com/ACBOrganization/resources/images/leisure.jpeg"
             }
         }
     }

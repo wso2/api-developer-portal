@@ -1,0 +1,77 @@
+name: Build and Prepare Release Assets
+
+on:
+  push:
+    tags:
+      - 'v*' 
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get the latest release from the API Developer Portal Core repo
+        id: get_latest_release
+        run: |
+          latest_release=$(curl -s https://api.github.com/repos/piyumaldk/api-developer-portal-core/releases/latest)
+          echo "Latest release tag: $(echo $latest_release | jq -r .tag_name)"
+          echo "Latest release assets: $(echo $latest_release | jq -r .assets[].name)"
+          echo "latest_release_tag=$(echo $latest_release | jq -r .tag_name)" >> $GITHUB_ENV
+          echo "assets=$(echo $latest_release | jq -r '.assets[].name' | tr '\n' ' ')" >> $GITHUB_ENV
+
+      - name: Download assets from the latest release
+        run: |
+          for asset in ${{ env.assets }}; do
+            echo "Downloading asset: $asset"
+            curl -L -o $asset https://github.com/piyumaldk/api-developer-portal-core/releases/download/${{ env.latest_release_tag }}/$asset
+          done
+
+      - name: Prepare and Zip Files for Each Asset
+        run: |
+          mkdir -p temp_zips  # Create a directory for zip files
+
+          for asset in ${{ env.assets }}; do
+            if [[ "$asset" == *source* ]]; then
+              continue
+            fi
+
+            echo "Processing asset: $asset"
+            mkdir -p developer-portal  # Use 'developer-portal' as the temp directory name
+
+            # Copy necessary files and directories
+            cp -r src developer-portal/
+            cp -r mock developer-portal/
+            cp -r artifacts developer-portal/
+            cp config.js developer-portal/
+            cp startup.bat developer-portal/
+            cp startup.sh developer-portal/
+            cp compress.sh developer-portal/
+            cp README.md developer-portal/
+            cp "$asset" developer-portal/  # Add asset file
+
+            # Create zip file named after the asset
+            zip_name="temp_zips/$asset.zip"
+            zip -r "$zip_name" developer-portal/*
+            rm -rf developer-portal  # Clean up for the next asset
+          done
+
+      - name: List Created Zip Files
+        run: ls -R temp_zips
+
+      - name: Upload Zips to GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ github.ref_name }}  
+          name: WSO2 API Developer Portal ${{ github.ref_name }}
+          body: "Automated release with custom assets including necessary scripts and files."
+          draft: false
+          prerelease: false
+          artifacts: "./temp_zips/*"  
+          allowUpdates: true
