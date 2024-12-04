@@ -20,7 +20,7 @@ jobs:
       - name: Get the latest release from the API Developer Portal Core repo
         id: get_latest_release
         run: |
-          latest_release=$(curl -s https://api.github.com/repos/piyumaldk/api-developer-portal-core/releases/latest)
+          latest_release=$(curl -s https://api.github.com/repos/wso2/api-developer-portal-core/releases/latest)
           echo "Latest release tag: $(echo $latest_release | jq -r .tag_name)"
           echo "Latest release assets: $(echo $latest_release | jq -r .assets[].name)"
           echo "latest_release_tag=$(echo $latest_release | jq -r .tag_name)" >> $GITHUB_ENV
@@ -30,7 +30,7 @@ jobs:
         run: |
           for asset in ${{ env.assets }}; do
             echo "Downloading asset: $asset"
-            curl -L -o $asset https://github.com/piyumaldk/api-developer-portal-core/releases/download/${{ env.latest_release_tag }}/$asset
+            curl -L -o $asset https://github.com/wso2/api-developer-portal-core/releases/download/${{ env.latest_release_tag }}/$asset
           done
 
       - name: Prepare and Zip Files for Each Asset
@@ -49,10 +49,12 @@ jobs:
             cp -r src developer-portal/
             cp -r mock developer-portal/
             cp -r artifacts developer-portal/
-            cp config.js developer-portal/
+            cp config.json developer-portal/
             cp startup.bat developer-portal/
             cp startup.sh developer-portal/
             cp compress.sh developer-portal/
+            cp InstallationGuide.md developer-portal/
+            cp QuickStart.md developer-portal/
             cp README.md developer-portal/
             cp "$asset" developer-portal/  # Add asset file
 

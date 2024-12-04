@@ -1,0 +1,28 @@
+{
+  "name": "devportal-developer-webapp",
+  "version": "1.0.0",
+  "description": "devportal developer webapp",
+  "scripts": {
+    "start": "node node_modules/devportal-webapp/src/app.js",
+    "compress": "sh compress.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wso2/api-developer-portal.git"
+  },
+  "keywords": [
+    "Devportal",
+    "Node.js"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/api-developer-portal/issues"
+  },
+  "homepage": "https://github.com/api-developer-portal#readme",
+  "dependencies": {
+    "devportal-webapp": "^1.0.65"
+  },
+  "bin": {
+    "app": "src/app.js"
+  }
+}

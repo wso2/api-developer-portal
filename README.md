@@ -1,22 +1,40 @@
-1.  Download the developer portal.
-    
-2.  Extract the downloaded zip.
-    
-3.  Execute the startup script on the <DEV-PORTAL-HOME> folder, based on the OS:
-    
-``` bash
-For Linux or MacOS
-    sh startup.sh
-For Windows
-   startup.bat 
-```
+# Devportal Developer App
 
-This will start the webapp in the following URL : ‘[http://localhost:3000](http://localhost:3000)’
+## Steps to Set Up the Project
 
-This will direct you to the organization landing page.
+**Fork and Clone the Repository**
+   - Fork the repository to your GitHub account.
+   - Clone the repository using:
+     ```bash
+     git clone https://github.com/wso2/api-developer-portal.git
+     ```
+   
+**Install Dependencies**
+   - Navigate to the project directory and execute:
+     ```bash
+     npm install
+     ```
 
-The ‘[http://localhost:3000](http://localhost:3000)/apis’ will direct you to the api listing page.
+**Start the Project**
 
-You will be able to see some mock apis populated in this page.
+   - To start the project and explore with mock data, run the following command.
+      ```bash
+     npm start
+     ```
+      
+## Project Structure and Layout
 
-You can click on each individual api to go to the relevant landing page of each API.
+**Project Structure**
+   - The `src` folder contains the page layout and content.
+        - The `/src/layout` folder includes the main layout of the dev portal.
+        - Other pages inherit this layout.
+        - The `/src/pages` folder holds the content for the pages.
+        - The `/src/partials` folder holds the common content for the pages.
+        - The header and footer are injected as partials into the layout.
+        - The `/src/images` folder contains the images.
+        - The `/src/styles` folder contains the styles applied for each component.
+   - The `mock` directory includes the mock API information.
+  
+**Mock APIs**
+   - Mock APIs are displayed to define the structure.
+   - In a production scenario, these will be replaced by actual published APIs.
