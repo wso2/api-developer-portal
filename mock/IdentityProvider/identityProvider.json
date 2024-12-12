@@ -4,7 +4,7 @@
     "authorizationURL": "https://localhost:9443/oauth2/authorize",
     "tokenURL": "https://127.0.0.1:9443/oauth2/token",
     "userInfoURL": "https://localhost:9443/oauth2/userinfo",
-    "clientId": "meVRlVAkUoVufXXjN3aUk72PVF8a",
+    "clientId": "ClientId",
     "callbackURL": "http://localhost:3000/ACME/callback",
     "scope": "openid email profile apim:subscribe role",
     "signUpURL": "",
