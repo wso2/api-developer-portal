@@ -21,6 +21,20 @@
       "description": "Allows up to 1000 requests per day."
     }
   ],
+  "subscriptionPolicies": [
+    {
+      "policyName": "Gold"
+    },
+    {
+      "policyName": "Silver"
+    },
+    {
+      "policyName": "Bronze"
+    },
+    {
+      "policyName": "Unlimited"
+    }
+  ],
   "serverUrl": {
     "sandboxUrl": "https://countries.trevorblades.com/graphql",
     "productionUrl": "https://countries.trevorblades.com/graphql"
