@@ -231,7 +231,7 @@ hr {
   color: var(--dark-color);
 }
 
-.dropdown {
+.apilist-dropdown {
   display: flex;
   align-items: center;
   justify-content: flex-end;

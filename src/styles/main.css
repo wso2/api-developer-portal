@@ -1,38 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-@import '/styles/hero.css';
-@import '/styles/footer.css';
-@import '/styles/header.css';
-@import '/styles/feature.css';
-@import '/styles/customers.css';
-@import '/styles/benifits.css';
-@import '/styles/testimonials.css';
-@import '/styles/documentation-banner.css';
-@import '/styles/community.css';
-@import '/styles/api-listing.css';
-@import '/styles/pagination.css';
-@import '/styles/api-detail-banner.css';
-@import '/styles/tryout-banner.css';
-@import '/styles/api-content.css';
-@import '/styles/pricing.css';
+@import "/styles/hero.css";
+@import "/styles/footer.css";
+@import "/styles/header.css";
+@import "/styles/feature.css";
+@import "/styles/customers.css";
+@import "/styles/benifits.css";
+@import "/styles/testimonials.css";
+@import "/styles/documentation-banner.css";
+@import "/styles/community.css";
+@import "/styles/api-listing.css";
+@import "/styles/pagination.css";
+@import "/styles/api-detail-banner.css";
+@import "/styles/tryout-banner.css";
+@import "/styles/api-content.css";
+@import "/styles/pricing.css";
 :root {
-  --main-bg-color: #f7f8fb;
-  --light-bg-color: #ffffff;
+  --main-bg-color: #ffffff;
+  /* primary colors */
+  --primary-main-color: #5952ad;
+  --primary-light-color: #f7f7ff;
+  --primary-dark-color: #423c89;
+  --primary-darkest-color: #302c6a;
+  /* secondary colors */
+  --secondary-main-color: #5dc7b1;
+  --secondary-light-color: #eef3f2;
+  --secondary-dark-color: #49a18e;
+  --secondary-darkest-color: #357b6c;
+  /* font colors */
+  --white-text-color: #ffffff;
   --main-text-color: #40404b;
   --light-text-color: #6b7280;
-  --dark-text-color: #000000;
-  --primary-color: #3e6ff2;
-  --primary-light-color: #CCD1F2;
-  --secondary-color: #0f2751;
-  --light-color: #ffc371;
-  --dark-color: #0f3971;
+  /* other special colors */
   --success-color: #28a745;
   --danger-color: #dc3545;
   --warning-color: #ffc107;
-  --info-color: #17a2b8;
-  --font-colour-primary: #ffffff;
-  --border-colour-primary: #1a73e8;
-  --border-colour-secondary: #ffffff;
-  --notselect-star-color: #bebec0;
+  --white-color: #ffffff;
+  --Black-color: #000000;
+   /* primary Gradient */
+  --primary-gradient: linear-gradient(90deg, #eeeeff 0%, #eef3f2 100%);
 
   --font-family-sans: "Poppins", sans-serif;
   --font-family-serif: "Sofia Sans", serif;
@@ -50,8 +55,157 @@ body {
   height: 100%;
 }
 
-/* primary button */
+/* primary button component */
 .common-btn-primary {
+  background-color: var(--primary-dark-color);
+  color: var(--white-text-color);
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.common-btn-primary:hover {
+  background-color: var(--primary-main-color);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  /* transform: scale(1.02); */
+  color: var(--white-text-color);
+}
+
+.common-btn-primary:active {
+  background-color: var(--primary-darkest-color);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  /* transform: scale(0.98); */
+  color: var(--white-text-color);
+}
+
+.common-btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(92, 79, 163, 0.4);
+}
+
+/* primary button - light component */
+.common-btn-white {
+  background-color: var(--white-color);
+  color: var(--primary-dark-color);
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.common-btn-white:hover {
+  background-color: var(--primary-main-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  color: var(--white-text-color);
+  /* transform: scale(1.02); */
+}
+
+.common-btn-white:active {
+  background-color: var(--primary-main-color);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transform: scale(0.98);
+  color: var(--white-text-color);
+}
+
+.common-btn-white:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4);
+}
+
+/* Link button - light component */
+.common-btn-link {
+  background-color: transparent;
+  color: var(--primary-main-color);
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: none;
+}
+
+.common-btn-link:hover {
+  color: var(--primary-dark-color);
+  background-color: var(--primary-main-color);
+  color: var(--white-text-color);
+  /* text-decoration: underline; */
+  /* transform: scale(1.02); */
+}
+
+.common-btn-link:active {
+  color: var(--white-text-color);
+  background-color: var(--primary-main-color);
+  /* text-decoration: underline; */
+  /* transform: scale(0.98); */
+}
+
+.common-btn-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--primary-light-color);
+}
+
+/* Link outlined - light component */
+.common-btn-outlined {
+  background-color: transparent;
+  color: var(--primary-main-color);
+  font-size: 14px;
+  padding: 10px 20px;
+  border: 1px solid var(--primary-main-color);
+  border-radius: 50px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.common-btn-outlined:hover {
+  background-color: var(--primary-light-color);
+  color: var(--primary-dark-color);
+  border-color: var(--primary-dark-color);
+  /* transform: scale(1.02); */
+}
+
+.common-btn-outlined:active {
+  background-color: var(--primary-dark-color);
+  color: var(--white-text-color);
+  /* transform: scale(0.98); */
+}
+
+.common-btn-outlined:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--primary-light-color);
+}
+
+/* common-sub-header */
+.common-sub-header h5 {
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--primary-main-color);
+  vertical-align: top;
+}
+
+/* common-header */
+.common-header h2 {
+  font-size: 30px;
+  margin-bottom: 45px;
+  font-weight: 600;
+  color: var(--primary-main-color);
+}
+
+
+/* primary button */
+/* .common-btn-primary {
   text-decoration: none;
   border: none;
   border-radius: 25px;
@@ -76,7 +230,7 @@ body {
 .common-btn-primary:focus {
   background-color: var(--dark-color);
   color: var(--font-colour-primary);
-}
+} */
 
 /* secondary button - light Color */
 .common-btn-secondary {
@@ -127,7 +281,7 @@ body {
   box-shadow: inset 0 2px 2px rgba(35, 40, 61, 0.6);
 }
 
-/* common-sub-header */
+/* common-sub-header
 .dev-sub-header h5 {
   text-transform: uppercase;
   font-size: 15px;
@@ -137,12 +291,12 @@ body {
 }
 
 /* common-header */
-.dev-header h2 {
+/* .dev-header h2 {
   font-size: 30px;
   margin-bottom: 45px;
   font-weight: 600;
   color: var(--main-text-color);
-}
+} */ 
 
 /* common-badge */
 .badge {
@@ -154,7 +308,7 @@ body {
 }
 
 /* common-card-style */
-.dev-card{
+.dev-card {
   background-color: var(--light-bg-color);
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -175,13 +329,16 @@ body {
   color: var(--main-text-color);
 }
 
-.api-md-content h3,h2 {
+.api-md-content h3,
+h2 {
   font-size: 24px;
   color: var(--main-text-color);
 }
 
 /* --SubTitle-- */
-.api-md-content h4,h5,h6 {
+.api-md-content h4,
+h5,
+h6 {
   font-size: 20px;
   color: var(--main-text-color);
 }
