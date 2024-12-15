@@ -1,9 +1,9 @@
 /* styles of key features */
-.features-container {
+/* .features-container {
   padding: 60px 40px 20px 40px;
   background-color: var(--main-bg-color);
   text-align: center;
-}
+} */
 
 /* styles of api overview */
 .api-overview {
@@ -127,9 +127,9 @@
   min-height: 275px;
 }
 
-.card-body {
+/* .card-body {
   padding: 20px;
-}
+} */
 
 .icon-container {
   display: flex;

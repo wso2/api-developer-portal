@@ -1,3 +1,6 @@
+.benifits-section{
+  padding: 0 3.75rem 1rem 3.75rem;
+}
 .benefits-container {
   background: var(--primary-gradient);
   padding: 3.75rem;
@@ -9,7 +12,7 @@
 .benefits-list {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .benefit-item {
@@ -68,10 +71,11 @@
   font-size: 0.75rem;
   text-decoration: none;
   display: inline-block;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .benefit-link:hover {
-  text-decoration: underline;
+  transform: translateX(0.3rem);
 }
 
 @media screen and (max-width: 48rem) {
