@@ -39,7 +39,7 @@
   --white-color: #ffffff;
   --Black-color: #000000;
   /* Gradient */
-  --primary-gradient: linear-gradient(90deg, #eeeeff 0%, #eef3f2 100%);
+  --primary-gradient: linear-gradient(90deg, #eeeeff 0%, #ebfbf7 100%);
   --dark-gradient: linear-gradient(to right, #50c9c3, #4a6fa1);
 
   --font-family-sans: "Poppins", sans-serif;
@@ -309,7 +309,7 @@ body {
 
 /* common-md-file-style */
 .api-md-content {
-  padding: 40px 80px;
+  padding: 40px 130px;
   background-color: var(--main-bg-color);
   line-height: 1.8;
 }
