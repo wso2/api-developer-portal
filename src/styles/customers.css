@@ -5,15 +5,7 @@
   justify-content: center;
   width: 100%;
   background-color: var(--main-bg-color);
-  padding: 60px 0;
-}
-
-.logo-header {
-  font-size: 18px;
-  margin-bottom: 25px;
-  font-weight: 600;
-  color: var(--main-text-color);
-  opacity: 0.7;
+  padding: 3rem 0;
 }
 
 .logo-row {
@@ -21,31 +13,50 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
 .logo {
-  width: 120px;
-  height: 50px;
-  margin: 0 15px;
+  width: 7.5rem;
+  height: 3.125rem;
+  margin: 0 0.9375rem;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+  filter: none;
+  transform: scale(1.1);
 }
 
 .explore-link {
   display: flex;
   align-items: center;
-  margin-left: 10px;
+  margin-left: 0.625rem;
 }
 
 .explore-link a {
   color: var(--primary-color);
-  font-size: 14px;
+  font-size: 0.875rem;
   text-decoration: none;
   display: flex;
   align-items: center;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.explore-link a:hover {
+  color: darken(var(--primary-color), 10%);
+  transform: translateX(0.3rem);
 }
 
 .explore-link .bi-arrow-right {
-  margin-left: 5px;
+  margin-left: 0.3125rem;
   color: var(--primary-color);
-  font-size: 15px;
-  margin-top: -5px;
+  font-size: 0.9375rem;
+  margin-top: -0.3125rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.explore-link a:hover .bi-arrow-right {
+  color: darken(var(--primary-color), 10%);
 }
