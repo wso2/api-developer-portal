@@ -2,11 +2,28 @@
   "port": 3000,
   "pathToContent": "./src/",
   "mode": "development",
+  "controlPlane": {
+    "url": "https://127.0.0.1:9443/api/am/devportal/v3",
+    "disableCertValidation": true,
+    "pathToCertificate": "../api-developer-portal/conf/security/client-truststore.pem"
+  },
   "db": {
     "username": "postgres",
     "password": "postgres",
     "database": "devportal",
     "host": "localhost",
     "dialect": "postgres"
-  }
+  },
+  "providerURL": {
+    "AWS": "https://aws.amazon.com"
+  },
+  "identityProvider": {},
+  "roleClaim": "roles",
+  "orgIDClaim": "organizationID",
+  "groupsClaim": "groups",
+  "adminRole": "admin",
+  "subscriberRole": "Internal/subscriber",
+  "superAdminRole": "superAdmin",
+  "authenticatedPages": [],
+  "authorizedPages": []
 }
