@@ -1,62 +1,36 @@
-.custom-api-card {
-    min-height: 100px;
+.api-plans-section {
+  margin: 3rem 3.75rem;
+  text-align: center;
 }
 
-.container {
-    text-align: left;
-    margin-top: 50px;
+.api-plans-content {
+  margin: 4rem auto 2.5rem auto;
 }
 
-.custom-modal-dialog {
-    position: relative;
-    margin: auto;
-    padding: 20px;
+.card-section {
+  display: flex;
+  justify-content: center;
 }
 
-.app-label {
-    padding: 10px 0px 10px;
+.custom-plans-card {
+  border: 0.2px solid var(--secondary-main-color);
+  transition: all 0.3s ease-in-out;
+  max-width: 380px;
 }
 
-.input-content {
-    margin: 10px 0px;
+.custom-plans-card:hover {
+  transform: translateY(-5px);
 }
 
-.custom-modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.custom-plans-card h5 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-main-color);
+  margin-bottom: 0.5rem;
 }
 
-.custom-modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
-    padding-top: 60px;
+.custom-plans-description {
+  font-size: 1rem;
+  color: var(--light-text-color);
 }
 
-.custom-modal-header, .custom-modal-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.custom-modal-header .close {
-    font-size: 30px;
-    color: #000;
-}
-
-.custom-modal-footer button {
-    margin: 5px;
-}
-
-.app-selection{
-    display: none;
-}
