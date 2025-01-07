@@ -20,9 +20,16 @@
           <li class="nav-item">
             <a class="nav-link" href="{{baseUrl}}/applications">Applications</a>
           </li>
+          {{#if isAdmin}}
           <li class="nav-item">
             <a class="nav-link" href="{{baseUrl}}/configure">Add Content</a>
           </li>
+          {{/if}}
+           {{#if isSuperAdmin}}
+          <li class="nav-item">
+            <a class="nav-link" href="/portal">Create organizations</a>
+          </li>
+          {{/if}}
         </ul>
       </div>
       <div class="d-flex align-items-center">
