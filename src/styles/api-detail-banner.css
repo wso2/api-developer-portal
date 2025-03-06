@@ -15,17 +15,23 @@
   display: flex;
 }
 
-.col-12.col-md-5 {
-  text-align: right;
-  padding-right: 2.5rem;
-}
-
 .api-image {
   width: 13.75rem;
   height: 13.75rem;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 0;
+  margin-right: 2.5rem;
+  float: right;
+}
+
+.api-image-small {
+  width: 9.375rem;
+  height: 9.375rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0;
+  float: right;
 }
 
 .api-title {
