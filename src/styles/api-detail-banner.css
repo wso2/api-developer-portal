@@ -1,14 +1,18 @@
 .api-banner-section {
-  margin: 3rem 3.75rem;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 3.75rem;
+  align-items: center;
+  flex-direction: column;
 }
 
 .api-banner-content {
-  background: var(--primary-gradient);
+  background-color: var(--secondary-bg-color);
   border-radius: 1.5rem;
   padding: 2.5rem 3.75rem;
-  margin: 4rem auto 2.5rem auto;
   text-align: left;
   min-height: 10rem;
+  display: flex;
 }
 
 .col-12.col-md-5 {
@@ -33,7 +37,7 @@
 
 .api-title h4 {
   font-size: 2.25rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary-main-color);
   margin: 0;
 }
@@ -79,4 +83,3 @@
   gap: 1rem;
   margin-top: 2rem;
 }
-
