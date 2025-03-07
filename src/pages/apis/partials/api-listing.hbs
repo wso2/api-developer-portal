@@ -78,17 +78,11 @@
                       {{#each applications}}
                         <div class="select-item" role="option" data-value="{{id}}">{{name}} {{#if subscribed}} ✔ {{/if}}</div>
                       {{/each}}
-                      {{!-- <div class="select-item" role="option" data-value="app1">Default Application</div>
-                      <div class="select-item" role="option" data-value="app2">App 2</div>
-                      <div class="select-item" role="option" data-value="app3">App 3</div> --}}
                     </div>
                     <select class="d-none" name="app-select-{{apiID}}">
                       {{#each applications}}
                         <option value="{{id}}" {{#if subscribed}} disabled {{/if}}>{{name}} {{#if subscribed}} ✔ {{/if}}</option>
                       {{/each}}
-                      {{!-- <option value="app1">Default Application</option>
-                      <option value="app2">App 2</option>
-                      <option value="app3">App 3</option> --}}
                     </select>
                   </div>
                 </div>
