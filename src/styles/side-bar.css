@@ -12,7 +12,6 @@
     justify-content: space-between;
     height: 95vh;
     padding: 1rem 0;
-
     background-color: #1a4c6d;
     width: 256px;
     transition: width 0.3s ease;
@@ -30,7 +29,7 @@
 }
 
 .nav-link {
-    padding: 1rem 0rem 1rem 1rem;
+    padding: 1rem 1rem 1rem 1rem;
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -44,9 +43,19 @@
     color: white;
 }
 
+.nav-link:hover img,
+.nav-link:hover svg {
+    filter: brightness(0) invert(1);
+}
+
 .nav-link.active {
     background-color: #41789c;
     color: white;
+}
+
+.nav-link.active img,
+.nav-link.active svg {
+    filter: brightness(0) invert(1);
 }
 
 .nav-link svg {
@@ -63,9 +72,7 @@
 }
 
 .collapsed .nav-text {
-    opacity: 0;
-    width: 0;
-    overflow: hidden;
+    display: none;
 }
 
 .api-icon {
