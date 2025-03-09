@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 @import "/styles/hero.css";
 @import "/styles/footer.css";
 @import "/styles/header.css";
@@ -40,6 +40,7 @@
   --white-text-color: #ffffff;
   --main-text-color: #40404b;
   --light-text-color: #6b7280;
+  --dark-text-color: #1D2028;
   /* other special colors */
   --success-color: #28a745;
   --danger-color: #dc3545;
@@ -298,9 +299,4 @@ h6 {
 
 .api-md-content li::marker {
   color: var(--primary-color);
-}
-
-/* Classes for Font weights */
-.font-light {
-  font-weight: 300;
 }

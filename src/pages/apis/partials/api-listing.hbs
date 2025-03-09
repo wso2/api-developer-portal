@@ -39,12 +39,12 @@
             </div>
             {{#if ../isAuthenticated}}
             {{#if (some applications "subscribed")}}
-            <div class="subscription-flag font-light">Subscribed</div>
+            <div class="subscription-flag fw-light">Subscribed</div>
             {{/if}}
             {{/if}}
           </div>
           <div class="api-card-body flex-grow-1">
-            <div class="truncate-text font-light apilisting-api-description small mb-3">{{apiInfo.apiDescription}}</div>
+            <div class="truncate-text fw-light apilisting-api-description small mb-3">{{apiInfo.apiDescription}}</div>
             <div class="row">
               <div class="apilisting-tags">
                 {{#apiInfo.tags}}
