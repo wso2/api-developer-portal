@@ -48,6 +48,10 @@
   --warning-color: #ffc107;
   --white-color: #ffffff;
   --Black-color: #000000;
+  /* sidebar specific colors */
+  --sidebar-link-color: #a8cadc;
+  --sidebar-active-color: #41789c;
+  --sidebar-submenu-bg: #043556;
   /* Gradient */
   --primary-gradient: linear-gradient(110.69deg, #1a4c6d33 17.45%, #40789333 90.82%);
   --dark-gradient: linear-gradient(to right, #50c9c3, #4a6fa1);
