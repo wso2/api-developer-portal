@@ -62,16 +62,19 @@
               <div id="subscriptionBox" class="subscription-container">
                 {{> subscription-plans apiInfo=apiInfo apiName=apiInfo.apiName}}
                 {{#if ../isAuthenticated}}
-                {{#unless (every applications "subscribed")}}
                 {{#if subscriptionPolicies.length}}
+
+                {{#unless (every applications "subscribed")}}
                 {{#if (eq subscriptionPolicies.length 1)}}
-                <a type="button" class="common-btn-outlined"
+                <a type="button" class="common-btn-primary"
                   onclick="subscribe('{{../orgID}}', '', '{{apiID}}', '{{apiReferenceID}}', '{{subscriptionPolicyDetails.policyID}}', '{{subscriptionPolicyDetails.policyName}}')">Subscribe</a>
                 {{else}}
                 <a type="button" class="common-btn-primary" onclick="loadModal('planModal-{{apiID}}')">Subscribe</a>
                 {{/if}}
+                {{else}}
+                <a type="button" class="common-btn-primary disabled" disabled>Subscribe</a>
+                {{/unless}}
 
-                {{#if applications.length}}
                 <div class="custom-dropdown" id="customDropdown-{{apiID}}">
                   <div class="custom-select-container">
                     <div class="select-selected" role="combobox" aria-expanded="false" aria-haspopup="listbox">
@@ -96,10 +99,8 @@
                   </div>
                 </div>
                 {{/if}}
-                {{/if}}
-                {{else}}
-                <a type="button" class="common-btn-primary disabled" disabled>Subscribe</a>
-                {{/unless}}
+
+
                 {{/if}}
               </div>
             </div>
