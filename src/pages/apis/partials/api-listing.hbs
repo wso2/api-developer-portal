@@ -15,14 +15,14 @@
         </div>
       </div>
       <div class="col-lg-6 col-md-12 apilist-hero-image">
-        <img src="/images/apisHeroImg.png" alt="Hero Image" class="img-fluid" />
+        <img src="https://raw.githubusercontent.com/wso2/docs-bijira/b5a67c84347eee5f24cde614317efa78ab5a7395/en/devportal-theming/apisHeroImg.svg" alt="Hero Image" class="img-fluid" />
       </div>
     </div>
   </div>
   <div class="container-fluid apilist-container">
     <div class="search-container">
       <div class="search-input">
-        <img src="/images/search.svg" alt="search" class="search-icon" />
+        <img src="https://raw.githubusercontent.com/wso2/docs-bijira/refs/heads/main/en/devportal-theming/search.svg" alt="search" class="search-icon" />
         <input type="text" id="query" placeholder="Search APIs" autocomplete="off" />
       </div>
     </div>
@@ -67,7 +67,7 @@
                 {{#unless (every applications "subscribed")}}
                 {{#if (eq subscriptionPolicies.length 1)}}
                 <a type="button" class="common-btn-primary"
-                  onclick="subscribe('{{../orgID}}', '', '{{apiID}}', '{{apiReferenceID}}', '{{subscriptionPolicyDetails.policyID}}', '{{subscriptionPolicyDetails.policyName}}')">Subscribe</a>
+                  onclick="subscribe('{{../orgID}}', '', '{{apiID}}', '{{apiReferenceID}}', '{{lookup (lookup subscriptionPolicyDetails 0) "policyID"}}', '{{lookup (lookup subscriptionPolicyDetails 0) "policyName"}}')">Subscribe</a>
                 {{else}}
                 <a type="button" class="common-btn-primary" onclick="loadModal('planModal-{{apiID}}')">Subscribe</a>
                 {{/if}}
@@ -86,7 +86,7 @@
                       {{#each applications}}
                       <div class="select-item" role="option" data-value="{{id}}">
                         <span>{{name}}</span>
-                        {{#if subscribed}}<img src="/images/success-rounded.svg" alt="Subscribed"
+                        {{#if subscribed}}<img src="https://raw.githubusercontent.com/wso2/docs-bijira/refs/heads/main/en/devportal-theming/success-rounded.svg" alt="Subscribed"
                           class="subscription-icon" />{{/if}}
                       </div>
                       {{/each}}
