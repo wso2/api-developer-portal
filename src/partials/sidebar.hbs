@@ -1,24 +1,32 @@
-<section>
-    <div class="sidebar collapsed" id="sidebar">
-        <nav class="nav">
-            <a href="{{baseUrl}}/" class="nav-link" id="home">
-                <img src="/images/home-icon.svg" />
-                <span class="nav-text">Home</span>
+<div class="sidebar collapsed" id="sidebar">
+    <nav class="nav">
+        <a href="{{baseUrl}}/" class="nav-link" id="home">
+            <img src="https://raw.githubusercontent.com/wso2/docs-bijira/refs/heads/main/en/devportal-theming/home-icon.svg" />
+            <span class="nav-text">Home</span>
+        </a>
+        <a href="{{baseUrl}}/apis" class="nav-link" id="apis">
+            <img src="https://raw.githubusercontent.com/wso2/docs-bijira/refs/heads/main/en/devportal-theming/apis-icon.svg" />
+            <span class="nav-text">APIs</span>
+        </a>
+        <div class="submenu api-submenu" id="api-submenu">
+            <a href="#" class="nav-link submenu-link fw-light" id="api-overview">
+                <img src="https://raw.githubusercontent.com/wso2/docs-bijira/refs/heads/main/en/devportal-theming/MenuOverview.svg" class="submenu-icon" />
+                <span class="nav-text">Overview</span>
             </a>
-            <a href="{{baseUrl}}/apis" class="nav-link" id="apis">
-                <img src="/images/apis-icon.svg" />
-                <span class="nav-text" href="{{baseUrl}}/apis">APIs</span>
+            <a href="#" class="nav-link submenu-link fw-light" id="api-docs">
+                <img src="https://raw.githubusercontent.com/wso2/docs-bijira/refs/heads/main/en/devportal-theming/documentation.svg" class="submenu-icon" />
+                <span class="nav-text">Documentation</span>
             </a>
-            {{!-- {{#if hasWSO2APIs}} --}}
-            <a href="{{baseUrl}}/applications" class="nav-link" id="applications">
-                <img src="/images/applications-icon.svg" />
-                <span class="nav-text">My Applications</span>
-            </a>
-            {{!-- {{/if}} --}}
-        </nav>
-        <button class="collapse-btn" id="collapseBtn">
-            <img id="arrowIcon" src="/images/arrow-left.svg" />
-            <span class="collapse-text">Collapse</span>
-        </button>
-    </div>
-</section>
+        </div>
+        {{!-- {{#if hasWSO2APIs}} --}}
+        <a href="{{baseUrl}}/applications" class="nav-link" id="applications">
+            <img src="https://raw.githubusercontent.com/wso2/docs-bijira/refs/heads/main/en/devportal-theming/applications-icon.svg" />
+            <span class="nav-text">Applications</span>
+        </a>
+        {{!-- {{/if}} --}}
+    </nav>
+    <button class="collapse-btn" id="collapseBtn">
+        <img id="arrowIcon" src="https://raw.githubusercontent.com/wso2/docs-bijira/refs/heads/main/en/devportal-theming/arrow-right.svg" />
+        <span class="collapse-text">Collapse</span>
+    </button>
+</div>
